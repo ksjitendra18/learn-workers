@@ -2,10 +2,23 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
+import { useEffect } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home(props) {
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch(
+        "https://8c8a1430.learn-workers.pages.dev/api/hello"
+      );
+      const data = await res.json();
+
+      console.log("heer is data", data);
+    };
+    fetchData();
+  }, []);
+
   const userName = props.resdata.name;
   return (
     <>
@@ -29,5 +42,3 @@ export async function getServerSideProps() {
     props: { resdata },
   };
 }
-
-
