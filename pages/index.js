@@ -29,3 +29,5 @@ export async function getServerSideProps() {
     props: { resdata },
   };
 }
+
+export const config = { runtime: "experimental-edge" };
