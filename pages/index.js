@@ -1,23 +1,20 @@
-import Head from "next/head";
-import Image from "next/image";
 import { Inter } from "@next/font/google";
-import styles from "../styles/Home.module.css";
-import { useEffect } from "react";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home(props) {
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch(
-        "https://learn-workers.pages.dev/api/hello"
-      );
-      const data = await res.json();
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const res = await fetch(
+  //       "https://learn-workers.pages.dev/api/hello"
+  //     );
+  //     const data = await res.json();
 
-      console.log("heer is data", data);
-    };
-    fetchData();
-  }, []);
+  //     console.log("heer is data", data);
+  //   };
+  //   fetchData();
+  // }, []);
 
   const userName = props.resdata.name;
   return (
@@ -34,7 +31,8 @@ export default function Home(props) {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/hello`);
+  // const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/hello`);
+  const res = await fetch(`https://bc4d1bbb.learn-workers.pages.dev/api/hello`);
   const resdata = await res.json();
   console.log("data is", resdata);
 
