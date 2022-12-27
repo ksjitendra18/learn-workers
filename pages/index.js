@@ -10,7 +10,7 @@ export default function Home(props) {
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch(
-        "https://8c8a1430.learn-workers.pages.dev/api/hello"
+        "https://learn-workers.pages.dev/api/hello"
       );
       const data = await res.json();
 
